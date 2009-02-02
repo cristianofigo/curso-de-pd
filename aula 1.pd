@@ -1,0 +1,602 @@
+#N canvas 329 138 519 395 10;
+#N canvas 472 25 538 637 hello 0;
+#X msg 204 32 hello world;
+#X obj 204 105 print;
+#X floatatom 321 32 0 0 0 0 - - -;
+#X text 215 48 message;
+#X text 319 49 atom;
+#X text 201 123 object;
+#X text 38 221 As mensagens mandam seus conteúdos para um ou mais destinatários
+após serem acionadas por cliques de mouse. O destino usual é o "outlet"
+no canto esquerdo inferior da caixa.;
+#X text 38 284 Clique na caixa de mensagem e veja a janela do terminal
+do PD que foi iniciada com o programa. Você deve ver a mensagem "hello
+world" aparecer.;
+#X text 39 170 Existem 4 tipos de objetos de texto no PD: message(mensagem)
+\, atom(caixas de números) \, object(objetos-externals) \, e comment(comentário).
+;
+#X text 38 334 Caixas de números respondem ao "arrastarmos" pra cima
+e pra baixo com o mouse \, mudando seu conteúdo e mandando o resultado
+pelo seu "outlet". Você pode também digitar diretamente numa caixa
+de número após clicar diretamente nela \; aperte "enter" para mandar
+o número para o "outlet" ou clique em qualquer outro lugar para cancelar.
+;
+#X text 39 427 Objetos \, como "print" acima \, podem ter todo tipo
+de funções dependendo do que está escrito na caixa(o nome do objeto
+em si). O objeto "print" simplesmente imprime na janela do terminal
+do PD toda mensagem que ele recebe.;
+#X text 39 500 Para ver a ajuda sobre um objeto \, clique com o botão
+direito nele (ctrl+click no mac). Você deve ver uma janela de ajuda
+(help window) para o objeto.;
+#X text 38 573 Importante: Para salvar um patch primeiro deve-se sair
+do modo de edição para depois salvar.;
+#X connect 0 0 1 0;
+#X connect 2 0 1 0;
+#X restore 21 72 pd hello;
+#N canvas 353 25 644 644 editando 0;
+#X msg 195 36 hello world;
+#X obj 195 72 print;
+#X floatatom 304 36 0 0 0 0 - - -;
+#X text 194 15 message;
+#X text 304 14 atom;
+#X text 255 73 object;
+#X text 32 110 Quando você abre um documento de PD como este pela primeira
+vez \, o cursor do mouse tem a imagem de uma flecha. Selecione "edit
+mode" no menu Edit e o cursor irá mudar para a imagem de uma mão. o
+patch está agora em modo de edição. Você pode mover qualquer objeto
+apenas arrastando-o.;
+#X text 34 195 Selecione "Edit mode" novamente no menu Edit (ou command+e
+no mac) e você terá voltado ao cursor com flecha que interage com os
+objetos sem movê-los.;
+#X text 38 254 No modo de edição \, se você clicar numa mensagem \,
+objeto \, ou comentário \, você pode reescrever o que está escrito
+nele. Para os objetos isto irá criar um novo objeto e deletar o antigo.
+PD irá tentar reconectar o objeto recém criado da mesma maneira que
+o antigo estava.;
+#X text 40 334 Quando você tiver acabado as mudanças no conteúdo da
+caixa \, clique fora da caixa para tirar a seleção dela. Isto dirá
+ao PD para incorporar o novo texto.;
+#X text 43 384 Você pode criar novos objetos duplicando alguns existentes
+usando o ítem "duplicate" no menu Edit. Você pode também "cortar" (cut)
+e "colar" (paste) eles. Se você duplicar vários objetos conectados
+\, as conexões serão replicadas também.;
+#X text 43 457 O modo de edição também possibilita que você faça e
+desfaça conexões entre os objetos. Ponha o cursor da"mão" sobre a linha
+que conecta dois objetos: ela se torna um X. Um clique irá selecionar
+a linha que liga as caixas \, para deletar é só clicar em "delete".
+Segure o cursor sobre uma saída (outlet) e ele se tornará um círculo
+(um ponto de ligação). Arraste até qualquer caixa e conecte \; você
+terá conectado à entrada (inlet) mais próxima.;
+#X text 42 571 O menu "put" cria novos ítens de texto de qualquer dos
+quatro tipos. Você pode também por uma caixa de "símbolo" \, análoga
+a caixa de número porém para mostrar e digitar linhas de comando.;
+#X connect 0 0 1 0;
+#X connect 2 0 1 0;
+#X restore 20 116 pd editando;
+#N canvas 0 25 1129 478 conectando 0;
+#X floatatom 90 436 0 0 0 0 - - -;
+#X floatatom 196 429 0 0 0 0 - - -;
+#X floatatom 90 309 0 0 0 0 - - -;
+#X floatatom 490 248 0 0 0 0 - - -;
+#X floatatom 549 247 0 0 0 0 - - -;
+#X obj 490 222 +;
+#X floatatom 506 143 0 0 0 0 - - -;
+#X obj 549 221 +;
+#X floatatom 77 107 0 0 0 0 - - -;
+#X floatatom 78 15 0 0 0 0 - - -;
+#X floatatom 99 39 0 0 0 0 - - -;
+#X obj 77 83 +;
+#X text 488 267 good;
+#X text 550 266 bad;
+#X obj 90 405 *;
+#X obj 196 405 -;
+#X obj 90 339 trigger float float;
+#X text 158 9 Em PD \, a maioria dos objetos transporta suas funções
+quando recebem mensagens em suas entradas da esquerda \, enquanto suas
+outras entradas servem para armazenar valores que podem modificar a
+próxima ação. Aqui \, o objeto "+" realiza sua função somente quando
+a entrada da esquerda aciona alguma mudança.;
+#X floatatom 640 96 5 0 0 0 - - -;
+#X obj 640 131 +;
+#X floatatom 639 181 5 0 0 0 - - -;
+#X floatatom 658 220 5 0 0 0 - - -;
+#X obj 657 262 +;
+#X floatatom 656 302 5 0 0 0 - - -;
+#X text 696 116 Certo: este foi ligado da direita para a esquerda (de
+quem vê). Portanto primeiro ele armazena um valor e depois manda outro
+valor(o mesmo número) para a soma que acaba acionando o "bang". Resulta
+sempre no dobro do número pois ele é somado a ele mesmo.;
+#X text 590 321 Errado: este foi ligado da esquerda para a direita
+(de quem vê). Portanto primeiro ele manda um valor já com um "bang"
+que vai ser somado com o valor que chegou no último bang.;
+#X text 683 8 "Trigger" pega qualquer número de argumentos "bang" e
+"float" (entre outros) e copia suas entradas para suas saídas \, na
+forma requerida \, na ordem da direita-para-esquerda. Ele divide uma
+entrada para duas saídas sem cruzar os cabos de ligação e você tem
+o resultado esperado. Cruze os cabos e você terá o efeito de "memória".
+;
+#X text 28 63 quente;
+#X text 104 64 fria;
+#X text 18 404 quadrado;
+#X text 69 129 Em PD você deve algumas vezes pensar sobre qual ordem
+um objeto está recebendo suas mensagens de entrada. Se uma saída está
+conectada em mais de uma entrada \, fica indefinido qual entrada irá
+receber a mensagem primeiro. Coloquei este exemplo de maneira que a
+caixa da esquerda tenha suas entradas conectadas na maneira correta(direita-para-esquerda)
+\, de maneira que a entrada "quente" acione ("bang") quando todos os
+dados estiverem prontos. A ligação errada (bad adder-caixa da direita)
+recebe suas entradas na ordem errada e fica perpetuamente fazendo essa
+soma antes de todos os dados terem entrado. Existe um objeto que existe
+apenas para permitir que você controle a ordem das mensagens explicitamente:
+;
+#X floatatom 422 430 0 0 0 0 - - -;
+#X floatatom 422 350 5 0 0 0 - - -;
+#X obj 422 390 -;
+#X text 14 431 (ligado;
+#X text 34 445 certo);
+#X text 236 395 subtrativa;
+#X text 241 414 (ligado;
+#X text 251 432 "errado");
+#X text 460 381 subtrativa ligada "errado";
+#X connect 2 0 16 0;
+#X connect 5 0 3 0;
+#X connect 6 0 7 0;
+#X connect 6 0 7 1;
+#X connect 6 0 5 1;
+#X connect 6 0 5 0;
+#X connect 7 0 4 0;
+#X connect 9 0 11 0;
+#X connect 10 0 11 1;
+#X connect 11 0 8 0;
+#X connect 14 0 0 0;
+#X connect 15 0 1 0;
+#X connect 16 0 14 0;
+#X connect 16 0 15 1;
+#X connect 16 1 14 1;
+#X connect 16 1 15 0;
+#X connect 18 0 19 1;
+#X connect 18 0 19 0;
+#X connect 19 0 20 0;
+#X connect 21 0 22 0;
+#X connect 21 0 22 1;
+#X connect 22 0 23 0;
+#X connect 32 0 33 0;
+#X connect 32 0 33 1;
+#X connect 33 0 31 0;
+#X restore 19 163 pd conectando;
+#N canvas 326 25 529 428 mensagens 0;
+#X floatatom 197 100 0 0 0 0 - - -;
+#X floatatom 156 99 0 0 0 0 - - -;
+#X msg 156 46 5 6;
+#X floatatom 104 98 0 0 0 0 - - -;
+#X floatatom 36 95 0 0 0 0 - - -;
+#X msg 36 45 5;
+#X obj 36 70 + 9;
+#X obj 104 73 +;
+#X obj 156 74 unpack;
+#X msg 260 45 5;
+#X obj 260 97 print;
+#X obj 260 71 pack 34 78;
+#X msg 104 45 5 6;
+#X floatatom 167 318 0 0 0 0 - - -;
+#X obj 167 293 +;
+#X msg 167 244 1.2 3.4;
+#X msg 177 267 5 6;
+#X text 25 9 A maioria das mensagens no PD são apenas números ou pequenas
+listas de números:;
+#X text 20 195 Ao contrário do Max \, no PD todos números são fracionários.
+Números os quais sejam inteiros aparecem sem o ponto decimal.;
+#X text 18 364 Para mais sobre mensagens \, acesse o help em qualquer
+caixa de mensagem clicando com o botão direito.;
+#X text 22 141 Se você manda uma lista para um objeto com mais de uma
+saída \, os ítens na lista são espalhados \, como visto no exemplo
+5+6 acima.;
+#X connect 2 0 8 0;
+#X connect 5 0 6 0;
+#X connect 6 0 4 0;
+#X connect 7 0 3 0;
+#X connect 8 0 1 0;
+#X connect 8 1 0 0;
+#X connect 9 0 11 0;
+#X connect 11 0 10 0;
+#X connect 12 0 7 0;
+#X connect 14 0 13 0;
+#X connect 15 0 14 0;
+#X connect 16 0 14 0;
+#X restore 19 205 pd mensagens;
+#N canvas 0 0 578 515 contador 0;
+#X floatatom 77 467 0 0 0 0 - - -;
+#X msg 23 387 bang;
+#X obj 77 442 + 1;
+#X floatatom 131 197 0 0 0 0 - - -;
+#X floatatom 87 245 0 0 0 0 - - -;
+#X msg 87 196 bang;
+#X floatatom 147 97 0 0 0 0 - - -;
+#X msg 90 48 bang;
+#X obj 147 72 + 1;
+#X obj 23 416 metro 500;
+#X msg 69 387 stop;
+#X obj 90 73 float;
+#X obj 87 221 float;
+#X obj 23 442 float;
+#X text 10 10 Aqui temos um simples contador. Clique repetidamente
+na mensagem "bang" para vê-lo funcionar:;
+#X text 11 121 O objeto "float" é um elemento de estocagem de dados
+que suporta um número fracionário. A entrada "fria" (a da direita)
+estoca números. Mandando a mensagem "bang" pela entrada "quente" (a
+da esquerda) obtemos o valor estocadoa partir da saída:;
+#X text 13 270 A saída de "float" acima é conectada via;
+#X obj 307 269 + 1;
+#X text 338 270 para sua entrada fria.;
+#X text 11 329 Aqui está um contador temporal. Clique no "bang" para
+começá-lo....;
+#X text 109 415 <---- novo objeto: metrônomo. O "500" significa a cada
+500 milisegundos-- \, duas vezes por segundo.;
+#X text 14 293 O valor de incremento é estocado para o próximo "bang"
+para então mandar pra fora.;
+#X text 387 435 (BPM: 120 - seminima);
+#X connect 1 0 9 0;
+#X connect 2 0 0 0;
+#X connect 2 0 13 1;
+#X connect 3 0 12 1;
+#X connect 5 0 12 0;
+#X connect 7 0 11 0;
+#X connect 8 0 6 0;
+#X connect 8 0 11 1;
+#X connect 9 0 13 0;
+#X connect 10 0 9 0;
+#X connect 10 0 9 0;
+#X connect 11 0 8 0;
+#X connect 12 0 4 0;
+#X connect 13 0 2 0;
+#X restore 18 253 pd contador;
+#X text 155 16 Aula 1;
+#N canvas 0 0 817 478 mais 0;
+#X floatatom 147 177 0 0 0 0 - - -;
+#X obj 147 151 + 1;
+#X msg 147 47 bang;
+#X obj 147 99 metro 500;
+#X msg 56 105 stop;
+#X obj 147 125 float;
+#X obj 147 73 trigger bang bang;
+#X msg 261 105 0;
+#X obj 56 79 select 10;
+#X floatatom 85 289 0 0 0 0 - - -;
+#X obj 85 315 >= 0;
+#X obj 85 341 select 0 1;
+#X obj 85 393 float;
+#X floatatom 139 420 0 0 0 0 - - -;
+#X msg 119 367 bang;
+#X obj 139 394 + 1;
+#X msg 85 367 -1;
+#X text 54 14 Aqui está um contador que conta de 1 a 10:;
+#X text 37 206 Estamos usando um novo objeto \, "select" \, que manda
+um bang para a saída quando encontra o valor de encontro (10) . Isto
+é útil para se fazer computações condicionais \, tais como essa que
+conta enquanto os dados de entrada são zero ou positivos e zera quando
+forem negativos:;
+#X text 184 46 <--- clique aqui para começar;
+#X text 304 73 inicialização é em 2 etapas;
+#X text 305 102 primeiro zeramos o contador;
+#X text 305 121 (antes de começar o metrônomo);
+#X text 131 313 <-- é um número positivo? (1 se for verdade \, 0 se
+for falso);
+#X text 180 340 <-- aciona seletivamente a primeira ou segunda saída
+;
+#X text 167 363 <-- como resultado tanto limpa ou incrementa o contador.
+;
+#X text 201 155 metrônomo pára condicionalmente;
+#X text 470 36 <---- experimente ligar a saida do "stop";
+#X text 515 51 na entrada do "bang".;
+#X connect 1 0 0 0;
+#X connect 1 0 5 1;
+#X connect 1 0 8 0;
+#X connect 2 0 6 0;
+#X connect 3 0 5 0;
+#X connect 4 0 3 0;
+#X connect 5 0 1 0;
+#X connect 6 0 3 0;
+#X connect 6 1 7 0;
+#X connect 7 0 5 1;
+#X connect 8 0 4 0;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 11 0 16 0;
+#X connect 11 1 14 0;
+#X connect 12 0 15 0;
+#X connect 14 0 12 0;
+#X connect 15 0 12 1;
+#X connect 15 0 13 0;
+#X connect 16 0 12 0;
+#X restore 19 302 pd mais contadores;
+#N canvas 385 28 717 543 tempo 0;
+#X obj 39 114 print;
+#X msg 39 56 bang;
+#X msg 85 58 stop;
+#X obj 39 86 delay 2000;
+#X msg 51 187 bang;
+#X obj 51 234 timer;
+#X obj 81 209 delay 123.45;
+#X floatatom 51 259 0 0 0 0 - - -;
+#X floatatom 46 375 0 0 0 0 - - -;
+#X floatatom 46 428 0 0 0 0 - - -;
+#X text 30 12 Além do metrônomo \, existem 3 objetos para se lidar
+com o tempo:;
+#X text 135 38 O objeto Delay agenda um evento para um tempo futuro
+expressado em milisegundos. Diferente do Max \, valores de tempo não
+são necessariamente valores inteiros. Se um delay foi agendado e você
+aciona ("bang") ele novamente \, ele é re-agendado (a saída previamente
+agendada é cancelada).;
+#X text 133 112 A entrada da direita pode ser usada para estabelecer
+o valor de tempo sem agendar nenhuma saída.;
+#X text 30 153 O objeto timer \, mostrado abaixo \, mede o tempo de
+distância entre as entradas da esquerda e da direita:;
+#X text 32 285 Note que todos cálculos de tempo são idealizados \;
+eles não mostram os efeitos do tempo de computação ou latência do sistema
+operacional. Dessa maneira você pode escrever algoritmos determinísticos
+lidando com a passagem do tempo.;
+#X text 133 372 O objeto "pipe" aloca memória dinamicamente de maneira
+a agendar qualquer número de eventos de delay. Os eventos podem carregar
+qualquer tipo de dados (como sempre \, para mais detalhes você pode
+consultar a janela de ajuda);
+#X obj 46 402 pipe 5000;
+#X connect 1 0 3 0;
+#X connect 2 0 3 0;
+#X connect 3 0 0 0;
+#X connect 4 0 5 0;
+#X connect 4 0 6 0;
+#X connect 5 0 7 0;
+#X connect 6 0 5 1;
+#X connect 8 0 16 0;
+#X connect 16 0 9 0;
+#X restore 263 65 pd tempo;
+#N canvas 509 39 608 651 ordem 0;
+#X msg 64 51 1;
+#X obj 89 150 + 1;
+#X obj 209 187 print x1;
+#X obj 64 209 print x3;
+#X obj 114 122 print x2;
+#X obj 209 100 + 1;
+#X obj 209 129 + 1;
+#X obj 209 158 + 1;
+#X obj 64 80 t f f f f;
+#X obj 89 179 print x2;
+#X text 104 51 <-- click here;
+#X msg 76 304 1;
+#X obj 115 334 + 1;
+#X obj 76 333 f;
+#X floatatom 76 365 0 0 0 0 - - -;
+#X msg 76 494 1;
+#X obj 115 524 + 1;
+#X obj 76 523 f;
+#X floatatom 76 555 0 0 0 0 - - -;
+#X text 116 494 <-- better;
+#X obj 40 598 t f;
+#X text 70 594 <---- abreviatura do objeto "trigger" \, seguido do
+argumento "float";
+#X text 25 241 ....você tem "x1" primeiro \, não desconsiderando o
+fato de que "x2" e "x3" aparecem mais próximo da fonte. Isso significa
+que você nnao deve fazer isso:;
+#X text 31 14 Em Pd a ordem das mensagens é primeiro a partir do "fundo"
+\, então nesse patch:;
+#X text 27 398 ...porque a "profundidade" das mensagens é infinita.
+Os contadores que você tem visto sempre tem a cadeia de mensagens terminada
+em alguma entrada fria:;
+#X text 116 304 <-- talvez você não devesse clicar aqui;
+#X connect 0 0 8 0;
+#X connect 1 0 9 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 7 0 2 0;
+#X connect 8 0 3 0;
+#X connect 8 1 1 0;
+#X connect 8 2 4 0;
+#X connect 8 3 5 0;
+#X connect 11 0 13 0;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 13 0 12 0;
+#X connect 15 0 17 0;
+#X connect 16 0 17 1;
+#X connect 17 0 18 0;
+#X connect 17 0 16 0;
+#X restore 263 104 pd ordem das mensagens;
+#N canvas 0 0 750 532 manda 0;
+#X floatatom 88 199 0 0 0 0 - - -;
+#X obj 88 172 receive crackers;
+#X floatatom 248 204 0 0 0 0 - - -;
+#X obj 248 177 receive pickles;
+#X obj 88 145 send crackers;
+#X obj 250 139 send pickles;
+#X obj 389 138 send pickles;
+#X floatatom 392 203 0 0 0 0 - - -;
+#X obj 392 176 receive pickles;
+#X msg 50 350 \; pickles 99 \; crackers 56;
+#X floatatom 88 118 0 0 0 0 - - -;
+#X floatatom 250 112 0 0 0 0 - - -;
+#X floatatom 389 111 0 0 0 0 - - -;
+#X obj 370 448 r crackers;
+#X obj 370 421 s crackers;
+#X text 60 9 Os objetos "send" e "receive" nos permite fazer conexões
+não-locais. Eles funcionam globalmente - você pode usá-los para fazer
+dois diferentes patches se intercomunicarem se você quiser. Qualquer
+mensagem "send" aparece na saída de todo "receive" de mesmo nome. Podem
+existir qualquer número de sends e receives compartilhando o mesmo
+nome:;
+#X text 58 259 Você pode usar o ponto e vírgula das caixas de mensagem
+para endereçar recebimentos também. Isso é útil se você quiser fazer
+uma lista inteira de coisas:;
+#X text 159 341 A transação dura 0 seg. Se você tentar usar "timer"
+para medir o tempo de atraso entre os dois \, você terá zero.;
+#X text 52 444 send e receive podem ser abreviados:;
+#X connect 1 0 0 0;
+#X connect 3 0 2 0;
+#X connect 8 0 7 0;
+#X connect 10 0 4 0;
+#X connect 11 0 5 0;
+#X connect 12 0 6 0;
+#X restore 262 145 pd manda recebe;
+#N canvas 0 0 634 630 mais 0;
+#X obj 223 373 print;
+#X msg 64 121 3 \, 4 \, 5;
+#X msg 56 94 3 4 5;
+#X msg 69 345 3 \$1 5;
+#X floatatom 69 318 4 0 0 0 - - -;
+#X msg 223 347 \$2 \$1 5;
+#X msg 223 322 45 67;
+#X msg 301 322 45 67;
+#X floatatom 44 481 4 0 0 0 - - -;
+#X floatatom 92 481 4 0 0 0 - - -;
+#X floatatom 344 211 4 0 0 0 - - -;
+#X floatatom 198 214 4 0 0 0 - - -;
+#X obj 198 187 receive number9;
+#X obj 344 187 receive 9bis;
+#X obj 56 210 print;
+#X msg 77 148 3 \; number9 5 \; 9bis 45;
+#X msg 301 347 \; number9 \$1 \; 9bis \$2;
+#X obj 69 371 print;
+#X obj 44 563 print;
+#X obj 44 511 pack 0 0 0;
+#X floatatom 140 481 4 0 0 0 - - -;
+#X msg 44 537 cis \$1 \, boom \$2 \, bah \$3;
+#X text 43 11 Em adição ao uso de ponto e vírgula para separar mensagens
+\, você pode usar espaços \, que continuam um fluxo de mensagens para
+um mesmo destino. Então:;
+#X text 121 90 <-- Uma mensagem: a lista \, "3 4 5".;
+#X text 138 121 <-- três mensagens separadas.;
+#X text 179 146 <-- três mensagens separadas \, com três destinos.
+;
+#X text 40 237 Você pode usar "\$1" \, etc. \, como variáveis em mensagens.
+Envie para a a caixa de mensagem uma lista quais elementos substituem
+os valores. Um número é somente uma lista com um elemento.;
+#X text 46 294 uma variável:;
+#X text 220 292 duas variáveis:;
+#X text 40 407 Mas para realmente explorar as possibilidades usando
+múltiplas variáveis \, você irá necessitar do objeto "pack" para ter
+dois ou mais valores na mesma mensagem:;
+#X text 140 511 comment;
+#X text 192 501 <--- a criação de argumentos para "pack" \, estabelece
+o número de entradas;
+#X connect 1 0 14 0;
+#X connect 2 0 14 0;
+#X connect 3 0 17 0;
+#X connect 4 0 3 0;
+#X connect 5 0 0 0;
+#X connect 6 0 5 0;
+#X connect 7 0 16 0;
+#X connect 8 0 19 0;
+#X connect 9 0 19 1;
+#X connect 12 0 11 0;
+#X connect 13 0 10 0;
+#X connect 15 0 14 0;
+#X connect 19 0 21 0;
+#X connect 20 0 19 2;
+#X connect 21 0 18 0;
+#X restore 263 192 pd mais mensagens;
+#N canvas 0 0 495 596 revisando 0;
+#X obj 39 288 receive;
+#X obj 39 259 send;
+#X obj 39 345 pack;
+#X obj 111 289 r;
+#X obj 82 259 s;
+#X obj 40 404 timer;
+#X obj 40 116 float;
+#X obj 39 231 select;
+#X obj 40 145 +;
+#X obj 40 173 >=;
+#X obj 39 202 print;
+#X obj 39 316 trigger;
+#X obj 95 117 f;
+#X obj 100 232 sel;
+#X obj 111 315 t;
+#X obj 39 374 unpack;
+#X obj 40 491 pipe;
+#X obj 40 433 delay;
+#X obj 40 462 metro;
+#X text 146 202 printout;
+#X text 75 145 (etc.);
+#X text 74 173 (etc.);
+#X text 29 16 Até agora nós vimos os seguintes objetos \, alguns dos
+quais usam abreviações. Clique com o botão direito em qualquer um para
+acessar a documentação de referência:;
+#X text 145 116 estoca um número;
+#X text 147 146 aritmética;
+#X text 145 173 comparação;
+#X text 145 231 teste comparativo entre números;
+#X text 150 261 manda mensagem sem fio;
+#X text 151 285 recebe mensagem sem fio;
+#X text 151 314 controle de mensagem \, ordem e formato;
+#X text 148 349 combina números em uma lista;
+#X text 146 375 pega uma lista e separa em números;
+#X text 145 404 mede o tempo passado;
+#X text 145 435 manda uma mensagem após um atraso;
+#X text 143 465 mensagem repetida;
+#X text 145 493 atraso múltiplo;
+#X text 26 527 Existem muitos outros...você pode ver uma lista completa
+em INTRO.txt nos patches de referência (pode ser acessado clicando
+com o botao direito do mouse na area em branco em qualquer patch);
+#X restore 263 230 pd revisando;
+#N canvas 0 0 532 452 oscilador 0;
+#X obj 97 33 osc~ 440;
+#X obj 96 134 dac~;
+#X msg 86 205 \; pd dsp 1;
+#X msg 190 205 \; pd dsp 0;
+#X text 100 244 ON;
+#X text 209 244 OFF;
+#X text 88 8 Usando um oscilador;
+#X text 330 456 comment;
+#X text 169 31 <-- 440 Hz. onda senoidal;
+#X text 185 54 <-- reduz a amplitude (volume) para 0.05;
+#X text 148 134 <----- manda o audio para o hardware (placa de som)
+;
+#X text 20 161 O audio pode ser ligado e desligado mandando mensagens
+para o objeto global "Pd" \, como segue:;
+#X text 16 265 ---Experimente os atalhos: Ctrl + / (liga o audio);
+#X text 208 285 Ctrl + . (desliga o audio);
+#X text 43 334 Em geral quando voce iniciar um trabalho com Pd \,;
+#X text 41 350 teste o audio usando o menu "media" e escolhendo:;
+#X text 38 369 "test audio and MIDI";
+#X msg 158 80 0;
+#X msg 140 57 0.05;
+#X text 196 78 <---- reduz a amplitude pra 0 (silencio);
+#X obj 96 104 *~;
+#X text 284 213 <-- clique aqui;
+#X text 458 25;
+#X connect 0 0 20 0;
+#X connect 17 0 20 1;
+#X connect 18 0 20 1;
+#X connect 20 0 1 0;
+#X restore 261 271 pd oscilador;
+#N canvas 439 25 595 423 amplitude 0;
+#X obj 64 65 osc~ 440;
+#X obj 64 283 dac~;
+#X msg 431 7 \; pd dsp 1;
+#X msg 514 7 \; pd dsp 0;
+#X text 456 45 ON;
+#X text 534 43 OFF;
+#X obj 64 202 *~ 0;
+#X floatatom 107 165 15 0 0 0 - - -;
+#X obj 95 132 dbtorms;
+#X floatatom 95 100 0 0 80 0 - - -;
+#X text 145 66 <-- 440 Hz. oscilador com onda senoidal;
+#X text 141 100 <-- estabelece a amplitude aqui em dB;
+#X text 211 133 <-- esse objeto converte dB unidades lineares;
+#X text 224 163 <-- aqui mostra o ganho linear;
+#X text 116 204 <-- multiplica o sinal de audio pelo ganho \, reduzindo
+sua amplitude. Voce tambem pode usar o objeto "*~" para multiplicar
+dois sinais. O argumento "0" aqui sera substituido pelo valor de conversao.
+;
+#X text 35 327 Amplitudes de sinais de audio podem ter qualquer registro
+\, mas quando voce manda um sinal para a saida via o objeto dac~ \,
+as amostras do sinal de audio devem ter valores entre -1 e +1. Valores
+fora desse registro serao "clipados".;
+#X text 114 282 <-- saida. estamos mandando para ambos canais agora.
+;
+#X text 164 18 controlando amplitude;
+#X connect 0 0 6 0;
+#X connect 6 0 1 0;
+#X connect 6 0 1 1;
+#X connect 8 0 6 1;
+#X connect 8 0 7 0;
+#X connect 9 0 8 0;
+#X restore 261 318 pd amplitude;
