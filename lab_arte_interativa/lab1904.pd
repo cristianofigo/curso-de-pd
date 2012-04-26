@@ -1,0 +1,54 @@
+#N canvas 105 24 866 655 24;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array array1 2.42176e+06 float 2;
+#X coords 0 1 2.42176e+06 -1 200 140 1;
+#X restore 546 180 graph;
+#X obj 18 -13 adc~;
+#X obj 88 533 dac~;
+#X obj 76 125 tabwrite~ array1;
+#X msg 121 -7 start;
+#X msg 147 43 stop;
+#X obj 87 425 tabplay~ array1;
+#X obj 87 383 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 294 489 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 348 540 soundfiler;
+#X obj 347 292 openpanel;
+#X obj 347 259 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 347 349 read -resize \$1 array1;
+#X obj 87 204 key;
+#X obj 87 263 sel 32;
+#X text 371 252 abrir;
+#X text 404 85 .wav e .aiff;
+#X text 410 -24 programa de conversão de áudio:;
+#X text 409 12 - audacity;
+#X text 329 54 obs: só funciona o áudio nos formatos:;
+#X obj 513 399 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 537 392 salvar como;
+#X obj 513 432 savepanel;
+#X msg 513 473 write -wave \$1 array1;
+#X msg 148 313 stop;
+#X floatatom 348 585 10 0 0 0 - - -;
+#X msg 162 360 15000 20000;
+#X connect 1 0 3 0;
+#X connect 1 1 3 0;
+#X connect 4 0 3 0;
+#X connect 5 0 3 0;
+#X connect 6 0 2 0;
+#X connect 6 0 2 1;
+#X connect 6 1 8 0;
+#X connect 7 0 6 0;
+#X connect 9 0 25 0;
+#X connect 10 0 12 0;
+#X connect 11 0 10 0;
+#X connect 12 0 9 0;
+#X connect 13 0 14 0;
+#X connect 14 0 7 0;
+#X connect 20 0 22 0;
+#X connect 22 0 23 0;
+#X connect 23 0 9 0;
+#X connect 24 0 6 0;
+#X connect 26 0 6 0;
