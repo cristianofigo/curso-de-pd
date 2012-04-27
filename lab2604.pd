@@ -1,0 +1,32 @@
+#N canvas 308 24 671 636 24;
+#X text 409 593 síntese sonora por FM;
+#X obj 83 374 osc~;
+#X text 160 371 onda portadora;
+#X obj 83 479 *~;
+#X obj 84 546 dac~;
+#X text 141 483 volume geral;
+#X obj 145 449 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 81 64 osc~;
+#X text 157 66 onda moduladora;
+#X obj 82 315 +~;
+#X floatatom 163 249 5 0 0 0 - - -;
+#X text 247 247 frequencia da portadora;
+#X obj 81 169 *~;
+#X floatatom 147 127 5 0 0 0 - - -;
+#X text 233 130 índice de modulação;
+#X floatatom 80 10 5 0 0 0 - - -;
+#X text 168 8 freq moduladora;
+#X obj 167 221 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 9800 1;
+#X connect 1 0 3 0;
+#X connect 3 0 4 0;
+#X connect 3 0 4 1;
+#X connect 6 0 3 1;
+#X connect 7 0 12 0;
+#X connect 9 0 1 0;
+#X connect 10 0 9 1;
+#X connect 12 0 9 0;
+#X connect 13 0 12 1;
+#X connect 15 0 7 0;
+#X connect 17 0 10 0;

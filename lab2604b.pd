@@ -1,0 +1,23 @@
+#N canvas 2 24 774 565 24;
+#X text 628 -10 filtragem;
+#X obj 74 47 noise~;
+#X text 175 45 gerador ruído branco;
+#X obj 175 385 *~;
+#X obj 152 504 dac~;
+#X obj 236 337 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 129 231 bp~;
+#X text 183 230 filtro do tipo "passa-banda";
+#X floatatom 148 104 5 0 0 0 - - -;
+#X text 232 113 frequência da "banda";
+#X floatatom 168 171 5 0 0 0 - - -;
+#X text 255 176 fator "Q" (amplitude de filtragem);
+#X obj 290 474 send~ audioteste;
+#X connect 1 0 6 0;
+#X connect 3 0 4 0;
+#X connect 3 0 4 1;
+#X connect 3 0 12 0;
+#X connect 5 0 3 1;
+#X connect 6 0 3 0;
+#X connect 8 0 6 1;
+#X connect 10 0 6 2;
