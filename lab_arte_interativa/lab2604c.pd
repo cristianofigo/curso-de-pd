@@ -1,4 +1,4 @@
-#N canvas 385 24 729 624 24;
+#N canvas 368 24 750 646 24;
 #X obj 373 531 gemwin;
 #X msg 407 304 create;
 #X msg 438 341 destroy;
@@ -15,7 +15,7 @@
 #X floatatom 77 304 5 0 0 0 - - -;
 #X floatatom 162 299 5 0 0 0 - - -;
 #X floatatom 254 300 5 0 0 0 - - -;
-#X obj 45 28 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+#X obj 45 28 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
 ;
 #X obj 54 243 translateXYZ;
 #X floatatom 109 148 5 0 0 0 - - -;
@@ -24,7 +24,7 @@
 #X obj 35 602 cylinder;
 #X text 340 80 Open GL;
 #X floatatom 264 558 5 0 0 0 - - -;
-#N canvas 421 24 535 626 automa 0;
+#N canvas 603 40 535 626 automa 0;
 #X obj 44 -3 metro 500;
 #X text 126 -44 emite "bangs" a cada x mseg.;
 #X text 185 3 = 120 bpm;
@@ -35,8 +35,8 @@
 #X floatatom 45 151 5 0 0 0 - - -;
 #N canvas 0 0 450 300 (subpatch) 0;
 #X array array1 8 float 3;
-#A 0 0.257142 0.314285 0.242857 -0.114285 -0.371428 -0.785712 -1.01428
-0.52857;
+#A 0 0.757141 0.785713 0.757141 0.757141 -0.771427 -0.82857 -0.785712
+-0.82857;
 #X coords 0 1 8 -1 200 140 1;
 #X restore 300 206 graph;
 #X obj 44 226 tabread array1;
@@ -60,12 +60,12 @@
 #X connect 14 0 13 0;
 #X restore 473 47 pd automa;
 #X obj 108 98 r eixox;
-#X obj 376 224 pack f f f;
+#X obj 376 221 pack f f f;
 #X msg 376 265 color \$1 \$2 \$3;
-#X floatatom 519 146 5 0 0 0 - - -;
-#X floatatom 440 148 5 0 0 0 - - -;
-#X floatatom 353 145 5 0 0 0 - - -;
-#X obj 388 200 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X floatatom 529 134 5 0 0 0 - - -;
+#X floatatom 443 118 5 0 0 0 - - -;
+#X floatatom 338 135 5 0 0 0 - - -;
+#X obj 402 183 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X connect 1 0 0 0;
 #X connect 2 0 0 0;
