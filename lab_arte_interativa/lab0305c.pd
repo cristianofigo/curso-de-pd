@@ -1,0 +1,27 @@
+#N canvas 481 24 543 640 24;
+#X obj 362 393 gemwin;
+#X msg 359 271 create \, 1;
+#X msg 385 318 0 \, destroy;
+#X obj 46 76 gemhead;
+#X obj 33 504 sphere;
+#X obj 45 407 color;
+#X obj 178 225 pack f f f;
+#X obj 180 42 vsl 30 128 0 1 0 0 empty empty empty 0 -9 0 10 -258113
+-1 -1 7600 1;
+#X obj 240 40 vsl 30 128 0 1 0 0 empty empty empty 0 -9 0 10 -4034
+-1 -1 11900 1;
+#X obj 294 40 vsl 30 128 0 1 0 0 empty empty empty 0 -9 0 10 -4160
+-1 -1 3300 1;
+#X obj 197 201 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X connect 3 0 5 0;
+#X connect 5 0 4 0;
+#X connect 6 0 5 1;
+#X connect 7 0 6 0;
+#X connect 8 0 6 1;
+#X connect 8 0 10 0;
+#X connect 9 0 6 2;
+#X connect 9 0 10 0;
+#X connect 10 0 6 0;
